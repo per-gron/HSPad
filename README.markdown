@@ -1,5 +1,7 @@
+# HSPad
+
 A simple AudioUnit instrument based on the PADSynth algorithm. It is
-intended to sound like the characteristic pad that is all to common
+intended to sound like the characteristic pad that is all too common
 in music from Hillsong United and related bands. It is capable of a
 range of sounds, but the sweet spot is definitely there, and it won't
 do anything very different from it.
