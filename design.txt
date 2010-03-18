@@ -1,0 +1,70 @@
+parameters for hspad
+
+* 16';     1 octave below fundamental
+* 5 1/3';  a fifth above fundamental
+* 8';      fundamental
+* 4';      1 octave above fundamental
+* 2 2/3';  1 octave and a fifth above fundamental
+* 2';      2 octaves above fundamental
+* 1 3/5'   2 octaves and a major third above fundamental
+* 1 1/3'   2 octaves and a fifth above fundamental
+* 1'       3 octaves above fundamental
+
+* harmonic profile; ranging from single harmonic to gaussian distribution to evenly spread distribution.
+* bandwidth of the fundamental frequency
+
+* bandwidth scale?
+* some way to adjust the relF function?
+
+
+
+key click
+percussion
+
+
+bandwidth of the fundamental frequency
+bandwidth scale
+
+
+
+Decrease the amplitude of higher harmonics on low velocity notes, by using a low-pass filter.
+
+
+http://www.cocoachina.com/wiki/index.php?title=Audio_Unit_Properties_Reference
+
+
+
+Each setting will generate a set of wavetables;
+* but how many? one for each note?
+* oversampling? if so, how much?
+
+HSWavetable
+* constructor; will generate the wavetables. Takes as parameters
+  * tables per octave
+  * sample rate
+  * number of samples
+* destructor; obvious
+* getClosestMatchingWavetable(desired_frequency) => wavetable, base frequency. (Binary search)
+
+
+
+http://lists.apple.com/archives/Coreaudio-api/2004/Nov/msg00094.html
+http://lists.apple.com/archives/coreaudio-api/2008/Sep/msg00210.html
+http://developer.apple.com/mac/library/technotes/tn2002/tn2104.html#GESTURES
+
+
+
+
+
+
+depending on harmoncis compensation parameter, notes at high registers disappear when harmonics amount is low
+
+
+
+Harmonics amount 10.07
+curve steepness 0.844
+compensation .699
+Lushness 52.88
+Attack time 0
+Release time 686
+
