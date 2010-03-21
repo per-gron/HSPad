@@ -94,6 +94,12 @@
 			CB355DF31156297D00E950FE /* PBXTextBookmark */ = CB355DF31156297D00E950FE /* PBXTextBookmark */;
 			CB355DF41156297D00E950FE /* PBXTextBookmark */ = CB355DF41156297D00E950FE /* PBXTextBookmark */;
 			CB355DF51156297D00E950FE /* PBXTextBookmark */ = CB355DF51156297D00E950FE /* PBXTextBookmark */;
+			CB355E031156320B00E950FE /* PBXTextBookmark */ = CB355E031156320B00E950FE /* PBXTextBookmark */;
+			CB355E041156320B00E950FE /* PBXTextBookmark */ = CB355E041156320B00E950FE /* PBXTextBookmark */;
+			CB355E051156320B00E950FE /* PBXTextBookmark */ = CB355E051156320B00E950FE /* PBXTextBookmark */;
+			CB355E061156324C00E950FE /* PBXTextBookmark */ = CB355E061156324C00E950FE /* PBXTextBookmark */;
+			CB355E071156324C00E950FE /* PBXTextBookmark */ = CB355E071156324C00E950FE /* PBXTextBookmark */;
+			CB355E081156324C00E950FE /* PBXTextBookmark */ = CB355E081156324C00E950FE /* PBXTextBookmark */;
 			CB42A4F71156196E00D06AC9 = CB42A4F71156196E00D06AC9 /* PBXTextBookmark */;
 			CB42A4F81156196E00D06AC9 = CB42A4F81156196E00D06AC9 /* PBXTextBookmark */;
 			CB42A4F91156196E00D06AC9 = CB42A4F91156196E00D06AC9 /* PBXTextBookmark */;
@@ -143,9 +149,9 @@
 	};
 	8BA05A660720730100365D66 /* HSPad.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {989, 5551}}";
-			sepNavSelRange = "{16180, 0}";
-			sepNavVisRange = "{14394, 1953}";
+			sepNavIntBoundsRect = "{{0, 0}, {989, 5382}}";
+			sepNavSelRange = "{10653, 0}";
+			sepNavVisRange = "{9463, 2859}";
 			sepNavWindowFrame = "{{61, 173}, {750, 558}}";
 		};
 	};
@@ -208,9 +214,9 @@
 	};
 	8BC6025B073B072D006C4272 /* HSPad.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {989, 1703}}";
-			sepNavSelRange = "{2442, 0}";
-			sepNavVisRange = "{1144, 2714}";
+			sepNavIntBoundsRect = "{{0, 0}, {989, 1742}}";
+			sepNavSelRange = "{3687, 0}";
+			sepNavVisRange = "{1242, 2926}";
 			sepNavWindowFrame = "{{176, 68}, {750, 558}}";
 		};
 	};
@@ -282,7 +288,7 @@
 		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
 		name = "HSPad.cpp: 339";
 		rLen = 0;
-		rLoc = 15396;
+		rLoc = 15398;
 		rType = 0;
 		vrLen = 1858;
 		vrLoc = 14560;
@@ -342,7 +348,7 @@
 		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
 		name = "HSPad.cpp: 339";
 		rLen = 0;
-		rLoc = 15396;
+		rLoc = 15398;
 		rType = 0;
 		vrLen = 1858;
 		vrLoc = 14560;
@@ -352,17 +358,77 @@
 		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
 		name = "HSPad.cpp: 358";
 		rLen = 0;
-		rLoc = 16180;
+		rLoc = 16182;
 		rType = 0;
 		vrLen = 1953;
 		vrLoc = 14394;
+	};
+	CB355E031156320B00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
+		name = "HSPad.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2899;
+		vrLoc = 0;
+	};
+	CB355E041156320B00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = CB735CE1112EC23300EBDCBA /* PADsynth.cpp */;
+		name = "PADsynth.cpp: 42";
+		rLen = 7;
+		rLoc = 1185;
+		rType = 0;
+		vrLen = 1751;
+		vrLoc = 538;
+	};
+	CB355E051156320B00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* HSPad.h */;
+		name = "HSPad.h: 91";
+		rLen = 0;
+		rLoc = 3687;
+		rType = 0;
+		vrLen = 2926;
+		vrLoc = 1242;
+	};
+	CB355E061156324C00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BC6025B073B072D006C4272 /* HSPad.h */;
+		name = "HSPad.h: 91";
+		rLen = 0;
+		rLoc = 3687;
+		rType = 0;
+		vrLen = 2926;
+		vrLoc = 1242;
+	};
+	CB355E071156324C00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
+		name = "HSPad.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2899;
+		vrLoc = 0;
+	};
+	CB355E081156324C00E950FE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
+		name = "HSPad.cpp: 230";
+		rLen = 0;
+		rLoc = 10653;
+		rType = 0;
+		vrLen = 2859;
+		vrLoc = 9463;
 	};
 	CB42A4F71156196E00D06AC9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 8BA05A660720730100365D66 /* HSPad.cpp */;
 		name = "HSPad.cpp: 358";
 		rLen = 0;
-		rLoc = 16180;
+		rLoc = 16182;
 		rType = 0;
 		vrLen = 1844;
 		vrLoc = 15031;
@@ -572,7 +638,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {989, 1144}}";
 			sepNavSelRange = "{1185, 7}";
-			sepNavVisRange = "{640, 1750}";
+			sepNavVisRange = "{538, 1751}";
 			sepNavWindowFrame = "{{153, 89}, {750, 558}}";
 		};
 	};

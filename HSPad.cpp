@@ -227,7 +227,7 @@ OSStatus HSPad::GetParameterInfo(AudioUnitScope inScope, AudioUnitParameterID in
             
         case kParameter_HarmonicsBalance:
             AUBase::FillInParameterName(outParameterInfo, kParamName_HarmonicsBalance, false);
-            outParameterInfo.unit =         kAudioUnitParameterUnit_Cents;
+            outParameterInfo.unit =         kAudioUnitParameterUnit_Generic;
             outParameterInfo.minValue =     kMinimumValue_HarmonicsBalance;
             outParameterInfo.maxValue =     kMaximumValue_HarmonicsBalance;
             outParameterInfo.defaultValue = kDefaultValue_HarmonicsBalance;

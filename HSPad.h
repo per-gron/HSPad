@@ -88,12 +88,12 @@ static const float       kMaximumValue_TouchSensitivity         = 1.0;
 static const CFStringRef kParamName_AttackTime                  = CFSTR("Attack time");
 static const float       kDefaultValue_AttackTime               = 0.0;
 static const float       kMinimumValue_AttackTime               = 0.0;
-static const float       kMaximumValue_AttackTime               = 10000.0;
+static const float       kMaximumValue_AttackTime               = 4000.0;
 
 static const CFStringRef kParamName_ReleaseTime                 = CFSTR("Release time");
 static const float       kDefaultValue_ReleaseTime              = 650.0;
 static const float       kMinimumValue_ReleaseTime              = 0.0;
-static const float       kMaximumValue_ReleaseTime              = 10000.0;
+static const float       kMaximumValue_ReleaseTime              = 4000.0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 struct HSNote : public SynthNote
