@@ -22,8 +22,8 @@
 FILE* dbg_f;
 #endif
 
-wavetables_data::wavetables_data(HSWavetable* hswt_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_) :
-hswt(hswt_), bw(bw_), bwscale(bwscale_), harmonics_amount(harmonics_amount_), harmonics_curve_steepness(harmonics_curve_steepness_), harmonics_compensation(harmonics_compensation_) {
+wavetables_data::wavetables_data(HSWavetable* hswt_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_) :
+hswt(hswt_), bw(bw_), bwscale(bwscale_), harmonics_amount(harmonics_amount_), harmonics_curve_steepness(harmonics_curve_steepness_), harmonics_balance(harmonics_balance_), harmonics_compensation(harmonics_compensation_) {
     wavetables = 0;
     wavetable_frequencies = 0;
 }
@@ -69,13 +69,14 @@ void wavetables_data::generate() {
         
         float compensated_num_harmonics = middle_frequency/wavetable_frequencies[i]*harmonics_amount;
         float num_harmonics = harmonics_compensation*compensated_num_harmonics + (1-harmonics_compensation)*harmonics_amount;
-        wavetable_num_harmonics[i] = ((int) num_harmonics)+1; // +1 just to be sure
+        wavetable_num_harmonics[i] = (((int) num_harmonics)+1)*2; // +1 just to be sure
         
         wavetable_harmonics[i] = (float*) malloc(sizeof(float)*wavetable_num_harmonics[i]);
         
         float harmonics_curve_pow = pow(harmonics_curve_steepness*2, 5);
         for (int j=0; j<wavetable_num_harmonics[i]; j++) {
-            wavetable_harmonics[i][j] = pow(1-((float)j)/(wavetable_num_harmonics[i]-1), harmonics_curve_pow);
+            float hbalance_value = ((j%2)?harmonics_balance:(1-harmonics_balance));
+            wavetable_harmonics[i][j] = pow(1-((float)j)/(wavetable_num_harmonics[i]-1), harmonics_curve_pow)*hbalance_value;
         }
     }
     
@@ -116,7 +117,7 @@ int wavetables_data::closestMatchingWavetable(float desired_frequency) const {
     return mid;
 }
 
-HSWavetable::HSWavetable(int num_wavetables_, int sample_rate_, int num_samples_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_) {
+HSWavetable::HSWavetable(int num_wavetables_, int sample_rate_, int num_samples_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_) {
     sample_rate = sample_rate_;
     num_samples = num_samples_;
     num_wavetables = num_wavetables_;
@@ -132,7 +133,7 @@ HSWavetable::HSWavetable(int num_wavetables_, int sample_rate_, int num_samples_
     
     pthread_create(&generator_thread, NULL, &HSWavetable::generatorThread, this);
     
-    current_wavetable = new wavetables_data(this, bw_, bwscale_, harmonics_amount_, harmonics_curve_steepness_, harmonics_compensation_);
+    current_wavetable = new wavetables_data(this, bw_, bwscale_, harmonics_amount_, harmonics_curve_steepness_, harmonics_balance_, harmonics_compensation_);
     current_wavetable->generate();
     
 #ifdef DEBUG_OUTPUT
@@ -157,13 +158,13 @@ HSWavetable::~HSWavetable() {
 #endif
 }
 
-void HSWavetable::generateWavetables(float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_) {
+void HSWavetable::generateWavetables(float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_) {
     
 #ifdef DEBUG_OUTPUT
     fprintf(dbg_f, "Hej\n");
 #endif
     
-    wavetables_data* wtd = new wavetables_data(this, bw_, bwscale_, harmonics_amount_, harmonics_curve_steepness_, harmonics_compensation_);
+    wavetables_data* wtd = new wavetables_data(this, bw_, bwscale_, harmonics_amount_, harmonics_curve_steepness_, harmonics_balance_, harmonics_compensation_);
     
     pthread_mutex_lock(&to_be_generated_mutex);
     if (to_be_generated) delete to_be_generated;

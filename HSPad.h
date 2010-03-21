@@ -30,20 +30,22 @@ enum {
     
     kParameter_HarmonicsAmount = 1,
     kParameter_HarmonicsCurveSteepness = 2,
-    kParameter_HarmonicBandwidth = 3,
-    kParameter_HarmonicProfile = 4,
+    kParameter_HarmonicsBalance = 3,
+    kParameter_HarmonicBandwidth = 4,
+    kParameter_HarmonicProfile = 5,
     
-    kParameter_TouchSensitivity = 5,
-    kParameter_AttackTime = 6,
-    kParameter_ReleaseTime = 7,
+    kParameter_TouchSensitivity = 6,
+    kParameter_AttackTime = 7,
+    kParameter_ReleaseTime = 8,
     
-	kNumberOfParameters=8
+	kNumberOfParameters=9
 };
 
-static int kNumParametersThatAreRelevantToWavetable = 4;
+static int kNumParametersThatAreRelevantToWavetable = 5;
 static int kParametersThatAreRelevantToWavetable[] = {
     kParameter_HarmonicsAmount,
     kParameter_HarmonicsCurveSteepness,
+    kParameter_HarmonicsBalance,
     kParameter_HarmonicBandwidth,
     kParameter_HarmonicProfile
 };
@@ -54,14 +56,19 @@ static const float       kMinimumValue_Volume                   = -30.0;
 static const float       kMaximumValue_Volume                   = 6.0;
 
 static const CFStringRef kParamName_HarmonicsAmount             = CFSTR("Harmonics amount");
-static const float       kDefaultValue_HarmonicsAmount          = 10.0;
+static const float       kDefaultValue_HarmonicsAmount          = 5.0;
 static const float       kMinimumValue_HarmonicsAmount          = 0.0;
-static const float       kMaximumValue_HarmonicsAmount          = 25.0;
+static const float       kMaximumValue_HarmonicsAmount          = 15.0;
 
 static const CFStringRef kParamName_HarmonicsCurveSteepness     = CFSTR("Harmonics curve steepness");
 static const float       kDefaultValue_HarmonicsCurveSteepness  = 0.85;
 static const float       kMinimumValue_HarmonicsCurveSteepness  = 0.0;
 static const float       kMaximumValue_HarmonicsCurveSteepness  = 1.0;
+
+static const CFStringRef kParamName_HarmonicsBalance            = CFSTR("Harmonics balance");
+static const float       kDefaultValue_HarmonicsBalance         = 0.5;
+static const float       kMinimumValue_HarmonicsBalance         = 0.0;
+static const float       kMaximumValue_HarmonicsBalance         = 1.0;
 
 static const CFStringRef kParamName_HarmonicBandwidth           = CFSTR("Lushness");
 static const float       kDefaultValue_HarmonicBandwidth        = 53;

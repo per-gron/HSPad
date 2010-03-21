@@ -85,6 +85,7 @@ HSPad::HSPad(ComponentInstance inComponentInstance)
     
 	Globals()->SetParameter(kParameter_HarmonicsAmount,         kDefaultValue_HarmonicsAmount);
 	Globals()->SetParameter(kParameter_HarmonicsCurveSteepness, kDefaultValue_HarmonicsCurveSteepness);
+	Globals()->SetParameter(kParameter_HarmonicsBalance,        kDefaultValue_HarmonicsBalance);
 	Globals()->SetParameter(kParameter_HarmonicBandwidth,       kDefaultValue_HarmonicBandwidth);
 	Globals()->SetParameter(kParameter_HarmonicProfile,         kDefaultValue_HarmonicProfile);
     
@@ -124,6 +125,7 @@ OSStatus HSPad::Initialize()
                                 Globals()->GetParameter(kParameter_HarmonicProfile), // Harmonic bandwidth scale
                                 Globals()->GetParameter(kParameter_HarmonicsAmount),
                                 Globals()->GetParameter(kParameter_HarmonicsCurveSteepness),
+                                Globals()->GetParameter(kParameter_HarmonicsBalance),
                                 kHarmonicsCompensation);
     
     if (0 == parameterListener) {
@@ -161,6 +163,7 @@ OSStatus HSPad::GenerateWavetables()
                                   Globals()->GetParameter(kParameter_HarmonicProfile), // Harmonic bandwidth scale
                                   Globals()->GetParameter(kParameter_HarmonicsAmount),
                                   Globals()->GetParameter(kParameter_HarmonicsCurveSteepness),
+                                  Globals()->GetParameter(kParameter_HarmonicsBalance),
                                   kHarmonicsCompensation);
     
     return noErr;
@@ -220,6 +223,14 @@ OSStatus HSPad::GetParameterInfo(AudioUnitScope inScope, AudioUnitParameterID in
             outParameterInfo.minValue =     kMinimumValue_HarmonicsCurveSteepness;
             outParameterInfo.maxValue =     kMaximumValue_HarmonicsCurveSteepness;
             outParameterInfo.defaultValue = kDefaultValue_HarmonicsCurveSteepness;
+            break;
+            
+        case kParameter_HarmonicsBalance:
+            AUBase::FillInParameterName(outParameterInfo, kParamName_HarmonicsBalance, false);
+            outParameterInfo.unit =         kAudioUnitParameterUnit_Cents;
+            outParameterInfo.minValue =     kMinimumValue_HarmonicsBalance;
+            outParameterInfo.maxValue =     kMaximumValue_HarmonicsBalance;
+            outParameterInfo.defaultValue = kDefaultValue_HarmonicsBalance;
             break;
             
         case kParameter_HarmonicBandwidth:
@@ -344,7 +355,7 @@ OSStatus		HSNote::Render(UInt32 inNumFrames, AudioBufferList& inBufferList)
 					if (amp < maxamp) amp += up_slope;
                     
                     int pint = (int) phase;
-                    float out1 = wt[pint%wavetable_num_samples];
+                    float out1 = wt[pint%wavetable_num_samples]; // TODO This occasionally crashes while changing parameters; dunno why
                     float out2 = wt[(pint+1)%wavetable_num_samples];
                     float out =  ((1-(phase-pint))*out1+(phase-pint)*out2) * amp * volumeFactor;
                     

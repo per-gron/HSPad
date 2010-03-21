@@ -40,7 +40,7 @@
 			<integer>1</integer>
 		</array>
 		<key>device ID</key>
-		<integer>265</integer>
+		<integer>262</integer>
 		<key>isCollapsed</key>
 		<false/>
 	</dict>
@@ -136,9 +136,10 @@
 				<dict>
 					<key>data</key>
 					<data>
-					AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABQSEe
-					uAAAAAI/WBBiAAAAA0JThR8AAAAEP4AAAAAA
-					AAU+TMzNAAAABgAAAAAAAAAHRCKAAA==
+					AAAAAAAAAAAAAAAJAAAAAAAAAAAAAAABQKAA
+					AAAAAAI/WZmaAAAAA0JIAAAAAAAEQlQAAAAA
+					AAU/gAAAAAAABj5MzM0AAAAHAAAAAAAAAAhE
+					IoAA
 					</data>
 					<key>manufacturer</key>
 					<integer>1348825669</integer>
@@ -297,7 +298,12 @@
 				<key>kAUInspectorStateKey_GenericViewShowExpertParams</key>
 				<false/>
 				<key>kAUInspectorStateKey_PresetDrawerExpandedItems</key>
-				<array/>
+				<array>
+					<array>
+						<string>User</string>
+						<true/>
+					</array>
+				</array>
 				<key>kAUInspectorStateKey_PresetDrawerShowing</key>
 				<false/>
 				<key>kAUInspectorStateKey_TrackIndex</key>

@@ -16,7 +16,7 @@ class PADsynth;
 class HSWavetable;
 
 struct wavetables_data {
-    wavetables_data(HSWavetable* hswt_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_);
+    wavetables_data(HSWavetable* hswt_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_);
     ~wavetables_data();
     
     void generate();
@@ -28,6 +28,7 @@ struct wavetables_data {
     float bwscale;
     float harmonics_amount;
     float harmonics_curve_steepness;
+    float harmonics_balance;
     float harmonics_compensation;
     
     // These are the actual wavetable data (and necessary info about which base frequency each table has)
@@ -37,11 +38,11 @@ struct wavetables_data {
 
 class HSWavetable {
 public:
-	HSWavetable(int num_wavetables_, int sample_rate_, int num_samples_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_);
+	HSWavetable(int num_wavetables_, int sample_rate_, int num_samples_, float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_);
     
 	~HSWavetable();
     
-    void generateWavetables(float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_compensation_);
+    void generateWavetables(float bw_, float bwscale_, float harmonics_amount_, float harmonics_curve_steepness_, float harmonics_balance_, float harmonics_compensation_);
     
 	int closestMatchingWavetable(float desired_frequency) {
         pthread_mutex_lock(&current_wavetable_mutex);
