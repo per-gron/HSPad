@@ -25,6 +25,20 @@ extract the zip file, and put the file in either
 to install it only for your user or for all users. If you don't know
 which one to pick, I recommend putting it inside your user directory.
 
+## Sound samples
+
+[Example one](http://github.com/downloads/pereckerdal/HSPad/Pad1.mp3)
+is a recording of the synth with the default settings except that the
+release time is set to be low, and reverb is used instead. I also used
+a MIDI compression effect before the synth to make the sound more even.
+
+[Example two](http://github.com/downloads/pereckerdal/HSPad/Pad2.mp3)
+is the same clip as example one, but with the release time set to
+650ms and without reverb or MIDI compression.
+
+[Example three](http://github.com/downloads/pereckerdal/HSPad/Pad3.mp3)
+is a silly example of what this synth could be used for except for
+pure pad sounds. I added some reverb.
 
 ## Recommended settings
 
