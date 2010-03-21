@@ -17,8 +17,20 @@ of the synth while playing on it.
 
 ## Recommended settings
 
-I get the best result by setting a relatively low attack and release
-time, combining it with a relatively long and prominent reverb.
+These settings result in a pad sound that is kind of what I had in
+mind when creating this synth:
+
+* **Volume**: 0.0dB
+* **Harmonics amount**: 5.00
+* **Harmonics curve steepness**: 0.85
+* **Harmonics balance**: 0.50
+* **Lushness**: 53ct
+* **Touch sensitivity**: 0.20
+* **Attack time**: 0ms
+* **Release time**: 650ms
+
+The sound will be much improved if the release time is set to zero
+and a prominent and relatively long reverb effect is used instead.
 
 ## Parameters
 
@@ -37,7 +49,7 @@ time, combining it with a relatively long and prominent reverb.
   odd-order harmonics. This is an effect that is difficult to
   describe, it changes the character of the sound. A low value will
   result in that the fundamental tone will be quiet or inaudible,
-  resulting in an octave effect.
+  resulting in an octave effect. 0.5 is a resonable default value.
 * **Lushness** dictates the width of the frequency distribution of
   each harmonic. It is measured in percents of a semitone. A low
   value gives static, very regular, "organ-y" sound. A moderate value
