@@ -15,6 +15,17 @@ is that most parameter changes do not show up immediately. In
 practise, this means that it's not practical to change the parameters
 of the synth while playing on it.
 
+## Installation instructions
+
+To install the synth, download
+[the AudioUnit component](http://github.com/downloads/pereckerdal/HSPad/HSPad.component.zip),
+extract the zip file, and put the file in either
+`~/Library/Audio/Plug-Ins/Components` or
+`/Library/Audio/Plug-Ins/Components`, depending on whether you want
+to install it only for your user or for all users. If you don't know
+which one to pick, I recommend putting it inside your user directory.
+
+
 ## Recommended settings
 
 These settings result in a pad sound that is kind of what I had in
@@ -76,7 +87,9 @@ and a prominent and relatively long reverb effect is used instead.
   be equally bright. Because of how this parameter is implemented,
   a higher value will result in a brighter sound overall. This can be
   compensated with the *harmonics amount* and *harmonics curve*
-  *steepness* parameters.
+  *steepness* parameters. Note that this parameter does not influence
+  the loudness of each note. To do that, I recommend the use of a
+  MIDI compression effect before this synth.
 * **Attack time** sets the attack time of the envelope.
 * **Release time** sets the release time of the envelope. I have
   got beautiful results by setting the release time low and instead
