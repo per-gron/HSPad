@@ -40,6 +40,11 @@ and a prominent and relatively long reverb effect is used instead.
   harmonics amount will result in a brighter sound, and will also
   increase the time required to generate the wavetables, which
   makes it take longer time before parameter changes take effect.
+  Note that setting this value very low might result in that the
+  synth is completely quiet. This can sometimes be partly
+  compensated by setting a high value on the harmonics curve
+  steepness, but in general it's not recommended to set this below
+  2.0.
 * **Harmonics curve steepness** sets the shape of the curve that
   dictates the loudness of each harmonic. A value of 0 will make all
   harmonics equally loud, usually creating a harsh noisy sound. A
@@ -48,13 +53,15 @@ and a prominent and relatively long reverb effect is used instead.
 * **Harmonics balance** sets the balance between even-order and
   odd-order harmonics. This is an effect that is difficult to
   describe, it changes the character of the sound. A low value will
-  result in that the fundamental tone will be quiet or inaudible,
+  result in that the fundamental will be quiet or inaudible,
   resulting in an octave effect. 0.5 is a resonable default value.
 * **Lushness** dictates the width of the frequency distribution of
   each harmonic. It is measured in percents of a semitone. A low
   value gives static, very regular, "organ-y" sound. A moderate value
   provides a lush character to the sound. A high value results in a
-  nauseating sound.
+  nauseating sound. The lowest possible value gives a quite even
+  sound, increasing it just a little bit will add a slow
+  amplitude-variation, tremolo-like effect.
 * **Lushness type** determines the relative frequency distribution of
   the harmonics. A low value makes the low harmonics have a wider
   frequency distribution than the high harmonics. A high value makes
@@ -72,6 +79,6 @@ and a prominent and relatively long reverb effect is used instead.
   *steepness* parameters.
 * **Attack time** sets the attack time of the envelope.
 * **Release time** sets the release time of the envelope. I have
-  gotten beautiful results by setting the release time low and
-  instead have a prominent reverb effect on the synth. This gives a
+  got beautiful results by setting the release time low and instead
+  have a prominent reverb effect on the synth. This gives a
   beautiful, lush sound. (If that's what you're after)
