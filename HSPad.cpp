@@ -355,7 +355,7 @@ OSStatus		HSNote::Render(UInt32 inNumFrames, AudioBufferList& inBufferList)
 					if (amp < maxamp) amp += up_slope;
                     
                     int pint = (int) phase;
-                    float out1 = wt[pint%wavetable_num_samples]; // TODO This occasionally crashes while changing parameters; dunno why
+                    float out1 = wt[pint%wavetable_num_samples];
                     float out2 = wt[(pint+1)%wavetable_num_samples];
                     float out =  ((1-(phase-pint))*out1+(phase-pint)*out2) * amp * volumeFactor;
                     

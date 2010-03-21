@@ -175,8 +175,8 @@ void HSWavetable::generateWavetables(float bw_, float bwscale_, float harmonics_
 
 void* HSWavetable::generatorThread(void* data) {
     HSWavetable* wt = (HSWavetable*) data;
-    pthread_mutex_t to_be_generated_mutex(wt->to_be_generated_mutex);
-    pthread_mutex_t current_wavetable_mutex(wt->current_wavetable_mutex);
+    pthread_mutex_t *to_be_generated_mutex = &wt->to_be_generated_mutex;
+    pthread_mutex_t *current_wavetable_mutex = &wt->current_wavetable_mutex;
     
     while (1) {
         // This code is a little bit odd. If the result of the trylock is that we succeeded
@@ -193,7 +193,7 @@ void* HSWavetable::generatorThread(void* data) {
         
         wavetables_data* tbg;
         
-        pthread_mutex_lock(&to_be_generated_mutex); {
+        pthread_mutex_lock(to_be_generated_mutex); {
             
             tbg = wt->to_be_generated;
             if (!tbg) {
@@ -201,17 +201,17 @@ void* HSWavetable::generatorThread(void* data) {
                 // This could be done with a condition variable instead, which
                 // might be better, but is also slightly more complex.
                 usleep(40000);
-                pthread_mutex_unlock(&to_be_generated_mutex);
+                pthread_mutex_unlock(to_be_generated_mutex);
                 continue;
             }
             wt->to_be_generated = 0;
             
-        } pthread_mutex_unlock(&to_be_generated_mutex);
+        } pthread_mutex_unlock(to_be_generated_mutex);
         
         // This is the heavy operation. It should be made without locks.
         tbg->generate();
         
-        pthread_mutex_lock(&current_wavetable_mutex); {
+        pthread_mutex_lock(current_wavetable_mutex); {
             
             if (wt->current_wavetable) {
                 // wt->current_wavetable should never be null at this point, but why risk it
@@ -219,7 +219,7 @@ void* HSWavetable::generatorThread(void* data) {
             }
             wt->current_wavetable = tbg;
             
-        } pthread_mutex_unlock(&current_wavetable_mutex);
+        } pthread_mutex_unlock(current_wavetable_mutex);
     }
     
     pthread_exit(NULL);
