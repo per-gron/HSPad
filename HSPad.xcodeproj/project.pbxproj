@@ -55,6 +55,11 @@
 		CB735CE4112EC23300EBDCBA /* PADsynth.h in Headers */ = {isa = PBXBuildFile; fileRef = CB735CE2112EC23300EBDCBA /* PADsynth.h */; };
 		CB735D41112F01E900EBDCBA /* HSWavetable.h in Headers */ = {isa = PBXBuildFile; fileRef = CB735D3F112F01E900EBDCBA /* HSWavetable.h */; };
 		CB735D42112F01E900EBDCBA /* HSWavetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB735D40112F01E900EBDCBA /* HSWavetable.cpp */; };
+		CB799AA411BE85ED004F32EC /* wav_dump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB799AA311BE85ED004F32EC /* wav_dump.cpp */; };
+		CB799AB311BE8642004F32EC /* HSWavetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB735D40112F01E900EBDCBA /* HSWavetable.cpp */; };
+		CB799AB411BE8642004F32EC /* PADsynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB735CE1112EC23300EBDCBA /* PADsynth.cpp */; };
+		CB799AB511BE8642004F32EC /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = CB735CC4112EBE3D00EBDCBA /* kiss_fftr.c */; };
+		CB799AB611BE8642004F32EC /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = CB735C78112E9DC600EBDCBA /* kiss_fft.c */; };
 		F78221E40ECE5CD000F413C6 /* AUBaseHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F78221E20ECE5CD000F413C6 /* AUBaseHelper.cpp */; };
 		F78221E50ECE5CD000F413C6 /* AUBaseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F78221E30ECE5CD000F413C6 /* AUBaseHelper.h */; };
 		F7E1488A0AB62EC30089813D /* AUMIDIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7E148880AB62EC30089813D /* AUMIDIBase.cpp */; };
@@ -143,6 +148,8 @@
 		CB735CE2112EC23300EBDCBA /* PADsynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PADsynth.h; sourceTree = "<group>"; };
 		CB735D3F112F01E900EBDCBA /* HSWavetable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSWavetable.h; sourceTree = "<group>"; };
 		CB735D40112F01E900EBDCBA /* HSWavetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HSWavetable.cpp; sourceTree = "<group>"; };
+		CB799A9D11BE8599004F32EC /* wav_dump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wav_dump; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB799AA311BE85ED004F32EC /* wav_dump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wav_dump.cpp; sourceTree = "<group>"; };
 		F78221E20ECE5CD000F413C6 /* AUBaseHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUBaseHelper.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBaseHelper.cpp; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		F78221E30ECE5CD000F413C6 /* AUBaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUBaseHelper.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBaseHelper.h; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		F7E148880AB62EC30089813D /* AUMIDIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = AUMIDIBase.cpp; sourceTree = "<group>"; };
@@ -173,6 +180,13 @@
 				8BA05AFC072074E100365D66 /* AudioToolbox.framework in Frameworks */,
 				8BA05AFD072074E100365D66 /* AudioUnit.framework in Frameworks */,
 				8BA05B02072074F900365D66 /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB799A9B11BE8599004F32EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				8D01CCD20486CAD60068D4B7 /* HSPad.component */,
+				CB799A9D11BE8599004F32EC /* wav_dump */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +260,7 @@
 				8BA05A690720730100365D66 /* HSPadVersion.h */,
 				CB735C77112E9DC600EBDCBA /* kiss_fft.h */,
 				CB735C78112E9DC600EBDCBA /* kiss_fft.c */,
+				CB799AA311BE85ED004F32EC /* wav_dump.cpp */,
 			);
 			name = "AU Source";
 			sourceTree = "<group>";
@@ -417,6 +433,22 @@
 			productReference = 8D01CCD20486CAD60068D4B7 /* HSPad.component */;
 			productType = "com.apple.product-type.bundle";
 		};
+		CB799A9C11BE8599004F32EC /* wav_dump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB799AA111BE85C3004F32EC /* Build configuration list for PBXNativeTarget "wav_dump" */;
+			buildPhases = (
+				CB799A9A11BE8599004F32EC /* Sources */,
+				CB799A9B11BE8599004F32EC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wav_dump;
+			productName = wav_dump;
+			productReference = CB799A9D11BE8599004F32EC /* wav_dump */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -430,6 +462,7 @@
 			projectRoot = "";
 			targets = (
 				8D01CCC60486CAD60068D4B7 /* HSPad */,
+				CB799A9C11BE8599004F32EC /* wav_dump */,
 			);
 		};
 /* End PBXProject section */
@@ -488,6 +521,18 @@
 				CB735CC6112EBE3D00EBDCBA /* kiss_fftr.c in Sources */,
 				CB735CE3112EC23300EBDCBA /* PADsynth.cpp in Sources */,
 				CB735D42112F01E900EBDCBA /* HSWavetable.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB799A9A11BE8599004F32EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB799AB311BE8642004F32EC /* HSWavetable.cpp in Sources */,
+				CB799AB411BE8642004F32EC /* PADsynth.cpp in Sources */,
+				CB799AB511BE8642004F32EC /* kiss_fftr.c in Sources */,
+				CB799AB611BE8642004F32EC /* kiss_fft.c in Sources */,
+				CB799AA411BE85ED004F32EC /* wav_dump.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +628,38 @@
 			};
 			name = Release;
 		};
+		CB799A9F11BE859A004F32EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = wav_dump;
+			};
+			name = Debug;
+		};
+		CB799AA011BE859A004F32EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = wav_dump;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -600,6 +677,15 @@
 			buildConfigurations = (
 				3E4BA248089833B7007656EC /* Debug */,
 				3E4BA249089833B7007656EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CB799AA111BE85C3004F32EC /* Build configuration list for PBXNativeTarget "wav_dump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB799A9F11BE859A004F32EC /* Debug */,
+				CB799AA011BE859A004F32EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
