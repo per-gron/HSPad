@@ -18,7 +18,7 @@ of the synth while playing on it.
 ## Installation instructions
 
 To install the synth, download
-[the AudioUnit component](http://github.com/downloads/pereckerdal/HSPad/HSPad.component.zip),
+[the AudioUnit component](https://github.com/pereckerdal/HSPad/releases/download/v1.0/HSPad.component.zip),
 extract the zip file, and put the file in either
 `~/Library/Audio/Plug-Ins/Components` or
 `/Library/Audio/Plug-Ins/Components`, depending on whether you want
