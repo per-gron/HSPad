@@ -100,9 +100,9 @@ struct HSNote : public SynthNote
 {
 	virtual					~HSNote() {}
 	
-	virtual void			Attack(const MusicDeviceNoteParams &inParams);
+	virtual bool			Attack(const MusicDeviceNoteParams &inParams);
 	virtual Float32			Amplitude() { return amp; } // used for finding quietest note for voice stealing.
-	virtual OSStatus		Render(UInt32 inNumFrames, AudioBufferList& inBufferList);
+    virtual OSStatus        Render(UInt64 inAbsoluteSampleFrame, UInt32 inNumFrames, AudioBufferList** inBufferList, UInt32 inOutBusCount);
 	
     // Instance variables related to wavetable
     int wavetable_num_samples;

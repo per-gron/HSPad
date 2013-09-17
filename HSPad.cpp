@@ -64,8 +64,9 @@
 #include "HSPad.h"
 
 #include "HSWavetable.h"
+#include "ComponentBase.h"
 
-COMPONENT_ENTRY(HSPad)
+AUDIOCOMPONENT_ENTRY(AUMusicDeviceFactory, HSPad)
 
 #pragma mark HSPad Methods
 
@@ -287,7 +288,7 @@ OSStatus HSPad::GetParameterInfo(AudioUnitScope inScope, AudioUnitParameterID in
 
 
 
-void HSNote::Attack(const MusicDeviceNoteParams &inParams)
+bool HSNote::Attack(const MusicDeviceNoteParams &inParams)
 {
     HSPad* hsp = (HSPad*) GetAudioUnit();
     wavetable = hsp->getWavetable();
@@ -320,14 +321,20 @@ void HSNote::Attack(const MusicDeviceNoteParams &inParams)
     }
     
     fast_dn_slope = -maxamp / (0.005 * sampleRate);
+    
+    return true;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //	HSPad::Render
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OSStatus		HSNote::Render(UInt32 inNumFrames, AudioBufferList& inBufferList)
+OSStatus		HSNote::Render(UInt64 inAbsoluteSampleFrame, UInt32 inNumFrames, AudioBufferList** inBufferList, UInt32 inOutBusCount)
 {
-	int numChans = inBufferList.mNumberBuffers;
+    // TestNote only writes into the first bus regardless of what is handed to us.
+	const int bus0 = 0;
+    AudioBufferList* inBuffer = inBufferList[bus0];
+    
+	int numChans = inBuffer->mNumberBuffers;
 	if (numChans > 2) return -1;
     
     float volumeFactor = pow(10, GetGlobalParameter(kParameter_Volume)/10);
@@ -338,8 +345,8 @@ OSStatus		HSNote::Render(UInt32 inNumFrames, AudioBufferList& inBufferList)
         float *wt = wavetable->getWavetableData(wavetable_idx);
         float base_frequency = wavetable->getBaseFrequency(wavetable_idx);
         
-        left = (float*)inBufferList.mBuffers[0].mData;
-        right = numChans == 2 ? (float*)inBufferList.mBuffers[1].mData : 0;
+        left = (float*)inBuffer->mBuffers[0].mData;
+        right = numChans == 2 ? (float*)inBuffer->mBuffers[1].mData : 0;
         
         double freq = Frequency()/base_frequency*((double)wavetable_sample_rate)/SampleRate();
         

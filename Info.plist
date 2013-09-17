@@ -24,5 +24,24 @@
 	<string>1.0</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
+	<key>AudioComponents</key>
+	<array>
+		<dict>
+			<key>description</key>
+			<string>HSPad</string>
+			<key>factoryFunction</key>
+			<string>HSPadFactory</string>
+			<key>manufacturer</key>
+			<string>PerE</string>
+			<key>name</key>
+			<string>HSPad</string>
+			<key>subtype</key>
+			<string>synt</string>
+			<key>type</key>
+			<string>aumu</string>
+			<key>version</key>
+			<integer>65536</integer>
+		</dict>
+	</array>
 </dict>
 </plist>
